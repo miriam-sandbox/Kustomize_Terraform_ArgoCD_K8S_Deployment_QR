@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../../base/orange
+
+# Adds a prefix or namespace specific to Cluster-A
+namespace: orange-namespace
+namePrefix: cluster-b-
+
+patches:
+  - target:
+      kind: Service
+      name: orange-service
+    patch: |-
+      - op: replace
+        path: /spec/ports/0/port
+        value: 8084
+      - op: replace
+        path: /spec/type
+        value: LoadBalancer

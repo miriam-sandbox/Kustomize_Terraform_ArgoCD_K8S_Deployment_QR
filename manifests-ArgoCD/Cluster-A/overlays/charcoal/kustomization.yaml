@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../../base/charcoal
+
+# Adds a prefix or namespace specific to Cluster-A
+namespace: charcoal-namespace
+namePrefix: cluster-a-
+
+patches:
+  - target:
+      kind: Service
+      name: charcoal-service
+    patch: |-
+      - op: replace
+        path: /spec/ports/0/port
+        value: 8082
+      - op: replace
+        path: /spec/type
+        value: LoadBalancer
