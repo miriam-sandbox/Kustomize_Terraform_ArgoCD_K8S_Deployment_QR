@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: blue
+  name: green
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: blue
+      app: green
   template:
     metadata:
       labels:
-        app: blue
+        app: green
     spec:
       containers:
-      - name: blue
-        image: miriamoranu/argocd-trf-k8s-demo-blue
+      - name: green
+        image: miriamoranu/argocd-trf-k8s-demo-green
         ports:
         - containerPort: 80

@@ -10,8 +10,8 @@ namePrefix: cluster-b-
 
 # Built-in image tag management
 images:
-  - name: nginx           # This must match the 'image' name used in your base deployment
-    newName: my-registry/blue-app
+  - name: argocd-trf-k8s-demo-green
+    newName: miriamoranu/argocd-trf-k8s-demo-green
     newTag: v1
 
 patches:

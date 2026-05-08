@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/your-repo.git' # Replace with your URL
+    repoURL: 'https://github.com/miriam-sandbox/Kustomize_Terraform_ArgoCD_K8S_Deployment_QR.git'
     path: manifests-ArgoCD/Cluster-B/overlays/green
     targetRevision: HEAD
   destination:

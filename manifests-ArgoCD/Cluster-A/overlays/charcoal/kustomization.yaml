@@ -8,6 +8,12 @@ resources:
 namespace: charcoal-namespace
 namePrefix: cluster-a-
 
+# Built-in image tag management
+images:
+  - name: argocd-trf-k8s-demo-charcoal
+    newName: miriamoranu/argocd-trf-k8s-demo-charcoal
+    newTag: v1
+
 patches:
   - target:
       kind: Service

@@ -8,6 +8,12 @@ resources:
 namespace: orange-namespace
 namePrefix: cluster-b-
 
+# Built-in image tag management
+images:
+  - name: argocd-trf-k8s-demo-orange
+    newName: miriamoranu/argocd-trf-k8s-demo-orange
+    newTag: v1
+
 patches:
   - target:
       kind: Service

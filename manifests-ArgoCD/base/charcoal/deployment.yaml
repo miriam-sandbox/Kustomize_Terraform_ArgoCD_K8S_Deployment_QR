@@ -13,7 +13,7 @@ spec:
         app: charcoal
     spec:
       containers:
-      - name: main
-        image: nginx:latest # Placeholder image
+      - name: charcoal
+        image: miriamoranu/argocd-trf-k8s-demo-charcoal
         ports:
         - containerPort: 80

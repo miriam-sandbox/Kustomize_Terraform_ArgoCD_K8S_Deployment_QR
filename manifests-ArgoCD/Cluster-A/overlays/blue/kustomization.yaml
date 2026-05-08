@@ -8,6 +8,12 @@ resources:
 namespace: blue-namespace
 namePrefix: cluster-a-
 
+# Built-in image tag management
+images:
+  - name: argocd-trf-k8s-demo-blue
+    newName: miriamoranu/argocd-trf-k8s-demo-blue
+    newTag: v1
+
 patches:
   - target:
       kind: Service
