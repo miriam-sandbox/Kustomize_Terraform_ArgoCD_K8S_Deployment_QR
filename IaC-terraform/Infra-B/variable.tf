@@ -3,7 +3,7 @@ variable "eks_cluster_name" {
 }
 
 variable "instance_types" {
-  default = "t3_small"
+  default = "t3.medium"
 }
 
 variable "node_group_name" {
@@ -15,5 +15,5 @@ variable "eks_version" {
 }
 
 variable "service_type" {
-  default = "Loadbalancer"
+  default = "LoadBalancer"
 }

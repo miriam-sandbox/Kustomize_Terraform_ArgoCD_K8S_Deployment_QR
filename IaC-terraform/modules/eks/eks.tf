@@ -92,13 +92,8 @@ resource "aws_eks_cluster" "cluster" {
 
   vpc_config {
     # tells AWS where to place the Elastic Network Interfaces (ENIs) that allow the AWS-managed Control Plane to talk to your VPC 
-    # (gives access to communicate with load balncers in public subnet and cluster nodes in private subnet)
-    subnet_ids = [
-      aws_subnet.private_1.id,
-      aws_subnet.private_2.id,
-      aws_subnet.public_1.id,
-      aws_subnet.public_2.id
-    ]
+    # (gives access to communicate with load balncers in public subnet and cluster nodes in private subnet) #all the subnet ids
+    subnet_ids = var.subnet_ids
   }
 
   access_config {
@@ -118,15 +113,12 @@ resource "aws_eks_node_group" "cluster" {
   node_role_arn   = aws_iam_role.nodes.arn
 
   # Deploy nodes into private subnets for security
-  subnet_ids = [
-    aws_subnet.private_1.id,
-    aws_subnet.private_2.id
-  ]
+  subnet_ids = var.node_subnet_ids
 
   scaling_config {
-    desired_size = 1
-    max_size     = 2
-    min_size     = 1
+    desired_size = 2
+    max_size     = 4
+    min_size     = 2
   }
 
   instance_types = [var.instance_types]

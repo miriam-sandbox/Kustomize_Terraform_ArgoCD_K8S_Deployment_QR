@@ -1,11 +1,11 @@
 output "cluster_name" {
   description = "The name of the EKS cluster"
-  value       = aws_eks_cluster.cluster.name
+  value       = module.eks.cluster_name
 }
 
 output "cluster_endpoint" {
   description = "The endpoint for your EKS Kubernetes API"
-  value       = aws_eks_cluster.cluster.endpoint
+  value       = module.eks.cluster_endpoint
 }
 
 output "argocd_loadbalancer_dns" {
